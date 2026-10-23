@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: keelworks-newsletter-qa-web
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production

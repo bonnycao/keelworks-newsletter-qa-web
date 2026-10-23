@@ -14,6 +14,11 @@ const port = process.env.PORT || 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.json({limit:'3mb'}));
 app.use(express.static(path.join(__dirname,'public')));
+app.get('/health', (_req,res)=>res.json({status:'ok'}));
+app.disable('x-powered-by');
+let activeScans=0;
+const requestsByIp=new Map();
+setInterval(()=>requestsByIp.clear(),60_000).unref();
 const jobs = new Map();
 const clean = v => String(v ?? '').replace(/[\u0000-\u001f]/g,' ').slice(0,2000);
 const add = (arr,category,defect,description,solution,severity='Medium',viewport='All',status='Detected') => arr.push({id:`QA-${String(arr.length+1).padStart(3,'0')}`,category,defect,description:clean(description),solution,severity,viewport,status});
@@ -249,6 +254,11 @@ async function audit({url, html, filename}){
  summary.issues=[...unique.values()].map((x,i)=>({...x,id:`QA-${String(i+1).padStart(3,'0')}`}));summary.count=summary.issues.length;return summary;
 }
 app.post('/api/audit',async(req,res)=>{
+ const ip=req.ip || 'unknown';
+ const count=(requestsByIp.get(ip)||0)+1;requestsByIp.set(ip,count);
+ if(count>3)return res.status(429).json({error:'Too many scans. Please wait a minute and retry.'});
+ if(activeScans>=1)return res.status(429).json({error:'Another scan is running. Please retry shortly.'});
+ activeScans++;
  try{
   const uploaded=req.body?.html;
   let source;
@@ -271,4 +281,4 @@ app.get('/api/export/:id',async(req,res)=>{
  const info=wb.addWorksheet('Scan Summary');info.addRows([['KeelWorks Newsletter QA Scan'],['Source',result.url],['Checked at',result.checkedAt],['Total findings',result.count],['Note','Automated results require human review.'],...result.notes.map(n=>['Limitation',n])]);info.getColumn(1).width=22;info.getColumn(2).width=110;info.getColumn(2).alignment={wrapText:true};
  res.setHeader('Content-Type','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');res.setHeader('Content-Disposition','attachment; filename="KeelWorks_Newsletter_QA.xlsx"');await wb.xlsx.write(res);res.end();
 });
-app.listen(port,()=>console.log(`KeelWorks QA ready at http://localhost:${port}`));
+app.listen(port,'0.0.0.0',()=>console.log(`KeelWorks QA listening on port ${port}`));

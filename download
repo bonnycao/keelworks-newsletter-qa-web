@@ -1,0 +1,9 @@
+node_modules
+.git
+.github
+*.bat
+*.zip
+.env
+.env.*
+*.log
+README-UPDATE.txt
