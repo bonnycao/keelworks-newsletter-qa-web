@@ -1,0 +1,173 @@
+/* Extracted from KeelWorks Figma Foundations. */
+:root {
+  --font-newsletter: Arial, sans-serif;
+  --background-page: #F7F7F7;
+  --background-surface: #FFFFFF;
+  --background-section-legacy: #EBEBEB;
+  --background-section-default: #FFFFFF;
+  --background-section-subtle: #F7F7F7;
+  --background-section-contrast: #EBEBEB;
+  --background-section-accent: #D0BCD5;
+  --background-footer: #666A6F;
+  --text-primary: #212121;
+  --text-secondary: #555555;
+  --brand-accent: #00929C;
+  --link-default: #006699;
+  --action-primary: #825E8B;
+  --border-default: #E5E7EB;
+  --newsletter-max-width: 640px;
+  --section-padding: 20px;
+  --container-radius: 8px;
+}
+[data-theme="dark"] {
+  --background-page: #121212;
+  --background-surface: #1E1E1E;
+  --background-section-legacy: #303030;
+  --background-section-default: #1E1E1E;
+  --background-section-subtle: #242424;
+  --background-section-contrast: #303030;
+  --background-section-accent: #45324D;
+  --background-footer: #292C32;
+  --text-primary: #F5F5F5;
+  --text-secondary: #BDBDBD;
+  --brand-accent: #59C9D0;
+  --link-default: #75D6E8;
+  --action-primary: #A77BB2;
+  --border-default: #484848;
+}
+body { margin: 0; font-family: var(--font-newsletter); background: var(--background-page); color: var(--text-primary); }
+.wrap {max-width:1050px;margin:auto;padding:32px 20px 80px}
+.panel {background:var(--background-surface);border:1px solid var(--border-default);border-radius:12px;padding:24px;margin:20px 0}
+.swatches {display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.swatch {border:1px solid var(--border-default);border-radius:8px;overflow:hidden}
+.color {height:64px}
+.swatch .meta {padding:12px;font-size:13px}
+.muted {color:var(--text-secondary)}
+.samples {max-width:640px}
+.samples h1 {font-size:24px;line-height:33px;margin:0 0 12px}
+.samples h2 {font-size:24px;line-height:31px;margin:0 0 12px}
+.samples p {font-size:16px;line-height:24px;margin:0 0 20px}
+.samples a {font-size:18px;color:var(--link-default);text-decoration:underline}
+.donate {display:inline-block;padding:12px 18px;background:var(--action-primary);color:#FCFCFC;border-radius:9px;text-decoration:none;font-size:18px}
+.demo-section {padding:20px;margin:8px 0;border-radius:8px}
+button {cursor:pointer;padding:10px 16px;border:1px solid var(--border-default);border-radius:8px;background:var(--background-surface);color:var(--text-primary)}
+code {font-size:12px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{line-height:1.5}
+.site-top{background:var(--background-surface);border-bottom:1px solid var(--border-default)}
+.site-top-inner{max-width:1160px;margin:auto;padding:25px 24px}
+.site-top h1{font-size:30px;margin:4px 0}.site-top p{margin:5px 0}
+.nav{display:flex;flex-wrap:wrap;gap:16px;margin-top:17px}.nav a{color:var(--link-default);font-size:14px}
+.wrap{max-width:1160px;padding:20px 24px 90px}
+.panel{margin:18px 0;padding:28px}.panel>h2{font-size:22px;margin:0 0 8px}
+.panel>p{margin:6px 0 20px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:bold;color:var(--brand-accent)}
+.mode-tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.mode-note{font-size:13px;color:var(--text-secondary)}
+.color-layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.swatch{background:var(--background-surface)}.swatch .color{height:80px}
+.swatch .meta strong{font-size:13px;overflow-wrap:anywhere}
+.swatch .meta code{display:block;margin-top:5px}
+.two-up{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.preview-stage{padding:22px;background:var(--background-page);border:1px dashed var(--border-default);border-radius:12px}
+.newsletter-preview{max-width:640px;margin:auto;overflow:hidden;border-radius:8px;background:var(--background-surface);border:1px solid var(--border-default)}
+.browser-bar{padding:7px 20px;text-align:center;background:var(--background-surface);font-size:13px}
+.browser-bar a{color:var(--link-default);text-decoration:underline}
+.nl-header{padding:22px 20px;background:var(--background-surface);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo-mark{font-size:23px;font-weight:800;letter-spacing:-.05em;color:var(--brand-accent)}
+.logo-mark span{color:var(--text-primary)}.nl-header small{color:var(--text-secondary)}
+.hero{padding:26px 20px 20px;background:var(--background-section-default)}
+.hero h2,.story h3{margin:0 0 12px;font-size:24px;line-height:31px}
+.hero p,.story p{font-size:16px;line-height:24px;margin:0 0 20px}
+.media-placeholder{display:grid;place-items:center;min-height:155px;border-radius:8px;background:linear-gradient(135deg,var(--background-section-contrast),var(--background-section-subtle));border:1px solid var(--border-default);color:var(--text-secondary);font-size:13px;text-align:center;padding:12px}
+.media-placeholder.wide{aspect-ratio:598/336;min-height:0}
+.story{padding:20px;background:var(--background-section-default)}
+.story.subtle{background:var(--background-section-subtle)}.story.contrast{background:var(--background-section-contrast)}
+.story.accent{background:var(--background-section-accent)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.story-grid.reverse .media-placeholder{order:-1}
+.story .sample-link{font-size:18px;text-decoration:underline;color:var(--link-default)}
+.donation{padding:25px 20px;background:var(--background-section-accent)}
+[data-theme=dark] .donation{background:#2D2D2D}
+.donation h3{font-size:24px;line-height:31px;margin:0 0 10px}.donation p{margin:0 0 14px}
+.nl-footer{background:var(--background-footer);color:white;padding:22px 20px;font-size:13px}
+.nl-footer a{color:white;text-decoration:underline}
+[data-theme=dark] .nl-footer{display:none}
+.spec-table{width:100%;border-collapse:collapse;font-size:14px}.spec-table th,.spec-table td{border-bottom:1px solid var(--border-default);padding:10px;text-align:left;vertical-align:top}.spec-table th{background:var(--background-section-subtle)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{padding:7px 10px;border:1px solid var(--border-default);border-radius:7px;background:var(--background-section-subtle);font-size:12px}
+.note{font-size:13px;color:var(--text-secondary)}
+@media(max-width:680px){.two-up{grid-template-columns:1fr}.story-grid{grid-template-columns:1fr}.story-grid.reverse .media-placeholder{order:0}.panel{padding:18px}.wrap{padding:12px}}
+
+/* Accessible, always-available back-to-top control */
+.back-to-top{position:fixed;right:22px;bottom:22px;z-index:100;display:inline-flex;align-items:center;gap:8px;padding:11px 15px;background:var(--background-surface);color:var(--link-default);border:1px solid var(--border-default);border-radius:999px;box-shadow:0 3px 14px #0002;text-decoration:none;font:600 14px Arial,sans-serif}
+.back-to-top:hover,.back-to-top:focus-visible{outline:2px solid var(--brand-accent);outline-offset:2px}
+@media(max-width:480px){.back-to-top{right:12px;bottom:12px;padding:11px 13px}.back-to-top span{display:none}}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* Theme switch: icon follows the mode the button will activate. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer}.theme-toggle .theme-icon{display:inline-flex;align-items:center;justify-content:center;flex:none}.theme-toggle .theme-icon svg{display:block}
+
+/* Image assets supplied for the Newsletter Design System */
+.newsletter-logo{display:block;line-height:0;max-width:58%}
+.newsletter-logo img{display:block;width:min(230px,100%);height:auto;object-fit:contain}
+.donate-image{display:inline-block;width:180px;height:60px;max-width:100%;border-radius:9px;overflow:hidden;vertical-align:middle}
+.donate-image img{display:block;width:180px;height:60px;max-width:100%;object-fit:contain}
+.donate-image:focus-visible{outline:3px solid var(--link-default);outline-offset:4px}
+.nl-footer{min-height:284px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;text-align:center;padding:30px 20px}
+.nl-footer nav{display:flex;justify-content:center;flex-wrap:wrap;align-items:center;gap:12px}
+.nl-footer a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.nl-footer p{margin:0;line-height:1.6}
+.footer-address,.footer-copyright{font-size:13px}
+.footer-placeholder{text-decoration:underline;text-underline-offset:3px;opacity:.9}
+@media(max-width:440px){.nl-header{flex-wrap:wrap}.nl-footer{gap:12px}.nl-footer nav{gap:8px}}
+
+/* Semantic, testable HTML Donate CTA; follows supplied production markup */
+.donate-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;padding:12px 18px;border-radius:9px;background:#825E8B;color:#FCFCFC;font-family:Arial,sans-serif;font-size:18px;font-weight:400;line-height:16px;text-decoration:none;min-height:44px;vertical-align:middle}
+.donate-cta img{display:inline-block;width:20px;height:20px;object-fit:contain;border:0;flex:none}
+.donate-cta span{color:inherit}
+[data-theme="dark"] .donate-cta{background:#A77BB2}
+.donate-cta:hover{filter:brightness(.94)}
+.donate-cta:focus-visible{outline:3px solid var(--link-default);outline-offset:4px}
+
+/* Production newsletter footer reference: supplied August 2026 HTML */
+.nl-footer{display:block;min-height:0;text-align:left;padding:20px;background:#666A6F;color:#fff;font-family:Arial,sans-serif;line-height:20px;border-radius:0 0 8px 8px}
+.nl-footer nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start}
+.nl-footer .footer-primary{gap:8px;margin:0 0 32px}
+.nl-footer .footer-social{gap:8px;margin:0 0 48px}
+.nl-footer .footer-social a{display:inline-block;margin:0}
+.nl-footer .footer-social img{display:block;width:32px;height:32px;object-fit:contain}
+.nl-footer .footer-legal{gap:8px;margin:0 0 32px}
+.nl-footer a{font-size:18px;font-weight:500;color:#fff;text-decoration:underline}
+.nl-footer .footer-copyright{margin:0 0 4px;color:#fff;font-size:16px;line-height:24px}
+.nl-footer .footer-address{margin:0;color:#fff;font-size:16px;line-height:24px}
+@media(max-width:440px){.nl-footer .footer-primary,.nl-footer .footer-legal{gap:6px}}
+
+/* Quote typography reference */
+.quote-specimen{margin:18px 0 24px;padding:20px;border:1px solid var(--border-default);border-radius:10px;background:var(--background-surface)}
+.quote-specimen .quote-text{font-family:Arial,sans-serif;font-size:16px;line-height:24px;font-weight:400;font-style:italic;color:var(--text-primary);margin:0 0 20px}
+#approved-links td,#sample-links td{overflow-wrap:anywhere;word-break:break-word}
+
+/* V13: slim sticky section navigation, independent of the page introduction */
+.site-top{border-bottom:0}
+.sticky-nav-wrap{position:sticky;top:0;z-index:90;background:var(--background-surface);border-bottom:1px solid var(--border-default);box-shadow:0 2px 8px rgba(0,0,0,.055)}
+.sticky-nav-inner{max-width:1160px;margin:0 auto;padding:0 24px}
+.sticky-nav-wrap .nav{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;margin:0;padding:7px 0;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.sticky-nav-wrap .nav a{display:inline-block;flex:0 0 auto;white-space:nowrap;text-decoration:none;border-radius:6px;padding:10px 12px;color:var(--text-secondary);font:600 14px Arial,sans-serif;border-bottom:2px solid transparent}
+.sticky-nav-wrap .nav a:hover{background:var(--background-section-subtle);color:var(--link-default)}
+.sticky-nav-wrap .nav a.is-active{color:var(--link-default);background:var(--background-section-subtle);border-bottom-color:var(--brand-accent)}
+.sticky-nav-wrap .nav a:focus-visible{outline:2px solid var(--brand-accent);outline-offset:-2px}
+main section[id]{scroll-margin-top:86px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:680px){.sticky-nav-inner{padding:0 12px}.sticky-nav-wrap .nav a{padding:10px 9px;font-size:13px}}
+
+/* Newsletter header: production August HTML is the structural specification;
+   date content is dynamic for each edition. */
+.nl-header{padding:20px;line-height:20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nl-header .newsletter-logo{display:block;flex:0 1 50%;max-width:50%;line-height:0}
+.nl-header .newsletter-logo img{display:block;width:180px;max-width:100%;height:auto;object-fit:contain}
+.newsletter-issue-date{flex:0 1 50%;text-align:right;vertical-align:middle;font-family:Arial,sans-serif;font-size:19px;line-height:31px;font-weight:800;color:#00929C;white-space:nowrap}
+[data-theme="dark"] .newsletter-issue-date{color:var(--brand-accent)}
+@media(max-width:440px){.nl-header{flex-wrap:nowrap}.newsletter-issue-date{font-size:19px}}
+
+/* Browser-view link: newsletter source HTML specifies left alignment */
+.browser-bar{text-align:left;padding:6px 16px;background:#F7F7F7;line-height:18px;color:#555}
+.browser-bar a{color:#006699;text-decoration:underline}

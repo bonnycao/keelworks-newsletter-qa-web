@@ -1,0 +1,601 @@
+{
+  "name": "KeelWorks Newsletter Design System",
+  "source": "https://www.figma.com/design/lW2FRRWeponmS1EXHgllyn/Design-System-1",
+  "status": "Extracted from Foundations; review before enforcing component-level checks",
+  "fontFamily": "Arial, sans-serif",
+  "figmaPreviewFont": "Inter",
+  "colors": {
+    "Background/Page": {
+      "light": "#F7F7F7",
+      "dark": "#121212"
+    },
+    "Background/Surface": {
+      "light": "#FFFFFF",
+      "dark": "#1E1E1E"
+    },
+    "Background/Section/Legacy": {
+      "light": "#EBEBEB",
+      "dark": "#303030"
+    },
+    "Background/Section/Default": {
+      "light": "#FFFFFF",
+      "dark": "#1E1E1E"
+    },
+    "Background/Section/Subtle": {
+      "light": "#F7F7F7",
+      "dark": "#242424"
+    },
+    "Background/Section/Contrast": {
+      "light": "#EBEBEB",
+      "dark": "#303030"
+    },
+    "Background/Section/Accent": {
+      "light": "#D0BCD5",
+      "dark": "#45324D"
+    },
+    "Background/Footer": {
+      "light": "#666A6F",
+      "dark": "#292C32"
+    },
+    "Text/Primary": {
+      "light": "#212121",
+      "dark": "#F5F5F5"
+    },
+    "Text/Secondary": {
+      "light": "#555555",
+      "dark": "#BDBDBD"
+    },
+    "Brand/Accent": {
+      "light": "#00929C",
+      "dark": "#59C9D0"
+    },
+    "Link/Default": {
+      "light": "#006699",
+      "dark": "#75D6E8"
+    },
+    "Action/Primary": {
+      "light": "#825E8B",
+      "dark": "#A77BB2"
+    },
+    "Border/Default": {
+      "light": "#E5E7EB",
+      "dark": "#484848"
+    }
+  },
+  "typography": {
+    "Heading/H1": {
+      "fontSize": 24,
+      "lineHeight": 33,
+      "fontWeight": 700,
+      "marginBottom": 12
+    },
+    "Heading/H2": {
+      "fontSize": 24,
+      "lineHeight": 31,
+      "fontWeight": 700,
+      "marginBottom": 12
+    },
+    "Body/Regular": {
+      "fontSize": 16,
+      "lineHeight": 24,
+      "fontWeight": 400,
+      "marginBottom": 20
+    },
+    "Label/Date": {
+      "fontSize": 19,
+      "lineHeight": 31,
+      "fontWeight": 800,
+      "fontFamily": "Arial, sans-serif",
+      "textColorLight": "#00929C",
+      "textAlign": "right",
+      "format": "MMM 'YY",
+      "usage": "Newsletter edition month and two-digit year; varies per issue"
+    },
+    "Link/Default": {
+      "fontSize": 18,
+      "fontWeight": 500,
+      "textDecoration": "underline"
+    },
+    "Body/Quote (Italic)": {
+      "fontSize": 16,
+      "lineHeight": 24,
+      "fontWeight": 400,
+      "fontStyle": "italic",
+      "textColorLight": "#212121",
+      "marginBottom": 20,
+      "usage": "Testimonials, personal statements and quotations",
+      "source": "reference newsletter p[style*=\"font-style: italic\"]"
+    }
+  },
+  "spacingScalePx": [
+    4,
+    6,
+    8,
+    10,
+    12,
+    16,
+    18,
+    20,
+    32,
+    48
+  ],
+  "layout": {
+    "newsletterMaxWidth": 640,
+    "sectionPadding": 20,
+    "responsiveBreakpoint": 640,
+    "imageRadiusRange": [
+      6,
+      8
+    ],
+    "containerRadius": 8
+  },
+  "button": {
+    "donate": {
+      "paddingVertical": 12,
+      "paddingHorizontal": 18,
+      "borderRadius": 9,
+      "fontSize": 18,
+      "backgroundLight": "#825E8B",
+      "backgroundDark": "#A77BB2",
+      "textColor": "#FCFCFC"
+    }
+  },
+  "usage": {
+    "email": "Light mode; inline styles and presentation tables",
+    "web": "Light and dark modes",
+    "darkDonationBackground": "#2D2D2D",
+    "darkFooter": "not included in dark web layouts"
+  },
+  "components": [
+    "Newsletter / Container",
+    "Newsletter / Header",
+    "Newsletter / Browser Link",
+    "Newsletter / Footer",
+    "Newsletter / Hero Story",
+    "Newsletter / Hero Image",
+    "Media / Image",
+    "Section / Text Only",
+    "Section / Image Right",
+    "Section / Image Left",
+    "Section / Donation",
+    "Button / Donate Dark",
+    "Link / Hypertext"
+  ],
+  "patterns": [
+    "Standard Monthly Newsletter",
+    "Featured Story Newsletter",
+    "News & Updates Newsletter",
+    "Community Spotlight Newsletter"
+  ],
+  "primitiveColors": {
+    "neutral/900": "#212121",
+    "neutral/700": "#555555",
+    "neutral/600": "#666A6F",
+    "neutral/300": "#E5E7EB",
+    "neutral/200": "#EBEBEB",
+    "neutral/100": "#F7F7F7",
+    "white": "#FFFFFF",
+    "off-white": "#FCFCFC",
+    "teal/link": "#006699",
+    "teal/brand": "#00929C",
+    "purple/action": "#825E8B",
+    "purple/support": "#D0BCD5"
+  },
+  "componentSpecifications": {
+    "Newsletter / Container": {
+      "widthPx": 638,
+      "maxWidthPx": 640,
+      "radiusPx": 8
+    },
+    "Newsletter / Browser Link": {
+      "heightPx": 34,
+      "typography": "Link/Default",
+      "alignment": "left",
+      "paddingVerticalPx": 6,
+      "paddingHorizontalPx": 16,
+      "backgroundLight": "#F7F7F7",
+      "textColor": "#006699",
+      "textDecoration": "underline",
+      "target": "_blank",
+      "behavior": "Opens current newsletter web version in a new browser tab",
+      "urlPolicy": "Dynamic HTTPS destination corresponding to the current published newsletter edition; no fixed example URL.",
+      "textAlign": "left",
+      "urlType": "edition-specific",
+      "validation": "Validate edition-matching published web URL and new-tab behavior."
+    },
+    "Newsletter / Header": {
+      "heightPx": 92,
+      "modes": [
+        "Light",
+        "Dark"
+      ],
+      "paddingPx": 20,
+      "logoWidthPx": 180,
+      "logoMaxWidthPx": 180,
+      "layout": "two columns, 50% each; vertically centered; logo left, issue date right",
+      "issueDateToken": "Label/Date",
+      "issueDateFormat": "MMM 'YY",
+      "issueDateExample": "AUG '26",
+      "issueDateDynamic": true
+    },
+    "Newsletter / Hero Story": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 461
+    },
+    "Newsletter / Hero Image": {
+      "referenceWidthPx": 598,
+      "referenceHeightPx": 336
+    },
+    "Media / Image": {
+      "referenceWidthPx": 300,
+      "referenceHeightPx": 190,
+      "radiusRangePx": [
+        6,
+        8
+      ]
+    },
+    "Section / Text Only": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 235,
+      "backgroundVariants": [
+        "Default",
+        "Subtle",
+        "Contrast"
+      ]
+    },
+    "Section / Image Right": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 250,
+      "backgroundVariants": [
+        "Default",
+        "Subtle",
+        "Contrast"
+      ]
+    },
+    "Section / Image Left": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 250,
+      "backgroundVariants": [
+        "Default",
+        "Subtle",
+        "Contrast"
+      ]
+    },
+    "Section / Donation": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 290,
+      "lightBackground": "Background/Section/Accent",
+      "darkWebBackground": "#2D2D2D"
+    },
+    "Newsletter / Footer": {
+      "referenceWidthPx": 638,
+      "referenceHeightPx": 284,
+      "lightOnlyInTemplates": true
+    },
+    "Button / Donate Dark": {
+      "referenceWidthPx": 180,
+      "referenceHeightPx": 60,
+      "fontSizePx": 18,
+      "borderRadiusPx": 9
+    },
+    "Link / Hypertext": {
+      "variants": [
+        "Default",
+        "Dark",
+        "Footer"
+      ],
+      "underlined": true
+    }
+  },
+  "qaPolicy": {
+    "enforce": [
+      "color variables by identified component role",
+      "font family and defined type tokens",
+      "link underline",
+      "newsletter maximum width",
+      "section padding",
+      "button styling",
+      "image alt attributes",
+      "image aspect ratio only when component identity is known",
+      "header logo width 180px and issue-date typography/format",
+      "browser-view link left alignment, valid edition-specific href and target=_blank"
+    ],
+    "reviewOnly": [
+      "Figma frame heights are design reference, not fixed responsive requirements",
+      "dark-mode appearance in email clients",
+      "unidentified section background variant",
+      "image subject matter and copy",
+      "component visual equivalence"
+    ],
+    "platforms": {
+      "email": "light-mode email markup; inline critical CSS; presentation tables",
+      "web": "light and dark themes"
+    }
+  },
+  "assets": {
+    "logo": {
+      "light": "logo-lightmode.png",
+      "dark": "logo-darkmode.png",
+      "widthPx": 180,
+      "heightPx": null
+    },
+    "donateIcon": {
+      "src": "hand_donate_white.png",
+      "widthPx": 20,
+      "heightPx": 20,
+      "decorative": true
+    }
+  },
+  "footer": {
+    "source": "User-supplied reference production newsletter HTML; reusable specifications, not edition-specific content",
+    "background": "#666A6F",
+    "textColor": "#FFFFFF",
+    "paddingPx": 20,
+    "bottomBorderRadiusPx": 8,
+    "lightEmailAndWeb": true,
+    "darkWebLayout": "omitted",
+    "links": [
+      {
+        "label": "Visit us",
+        "href": "https://keelworks.org"
+      },
+      {
+        "label": "Donate",
+        "href": "https://www.every.org/keelworks-foundation"
+      },
+      {
+        "label": "Get involved",
+        "href": "https://keelworks.org/getinvolved"
+      },
+      {
+        "label": "Unsubscribe",
+        "href": "https://newsletters.keelworks.org/unsubscribe"
+      },
+      {
+        "label": "Privacy policy",
+        "href": "https://keelworks.org/privacy_policy"
+      }
+    ],
+    "socialLinks": [
+      {
+        "name": "Facebook",
+        "href": "https://www.facebook.com/TheKeelWorks",
+        "icon": "facebook.png",
+        "iconWidthPx": 32
+      },
+      {
+        "name": "YouTube",
+        "href": "https://www.youtube.com/@thekeelworksfoundation8668",
+        "icon": "youtube.png",
+        "iconWidthPx": 32
+      },
+      {
+        "name": "LinkedIn",
+        "href": "https://www.linkedin.com/company/keelworks-foundation/",
+        "icon": "linkedin.png",
+        "iconWidthPx": 32
+      },
+      {
+        "name": "Instagram",
+        "href": "https://www.instagram.com/thekeelworks/",
+        "icon": "instagram.png",
+        "iconWidthPx": 32
+      }
+    ],
+    "layout": {
+      "navigationMarginBottomPx": 32,
+      "socialMarginBottomPx": 48,
+      "legalMarginBottomPx": 32,
+      "copyrightMarginBottomPx": 4
+    },
+    "copyright": {
+      "pattern": "© {year} KeelWorks. All rights reserved.",
+      "yearMustMatchEdition": true
+    },
+    "address": "2398 West Beach Road, Oak Harbor, WA 98277 USA",
+    "qaChecks": [
+      "required links present",
+      "link destinations match approved URLs",
+      "social icons have accessible names",
+      "social icon width 32px",
+      "footer background and text colors",
+      "footer section order",
+      "address present",
+      "copyright year consistent with edition"
+    ]
+  },
+  "donateButton": {
+    "element": "a",
+    "background": {
+      "light": "#825E8B",
+      "dark": "#A77BB2"
+    },
+    "textColor": "#FCFCFC",
+    "fontFamily": "Arial, sans-serif",
+    "fontSizePx": 18,
+    "lineHeightPx": 16,
+    "paddingVerticalPx": 12,
+    "paddingHorizontalPx": 18,
+    "borderRadiusPx": 9,
+    "icon": "hand_donate_white.png",
+    "iconWidthPx": 20,
+    "iconMarginRightPx": 8,
+    "text": "Donate",
+    "href": "https://www.every.org/keelworks-foundation?donateTo=keelworks-foundation#/donate/card",
+    "target": "_blank",
+    "textDecoration": "none",
+    "qaNotes": [
+      "Check accessible link name",
+      "Check actual href",
+      "Check CSS properties and decorative icon",
+      "Do not require button screenshot pixel match"
+    ]
+  },
+  "linkValidation": {
+    "category": "Links & Redirect Validation",
+    "scope": "All newsletter a[href] elements including browser, content, CTA, social, and footer links",
+    "checks": [
+      {
+        "id": "LINK-01",
+        "name": "Missing or empty href",
+        "severity": "High",
+        "condition": "href missing, empty, whitespace-only, or # without valid in-page target"
+      },
+      {
+        "id": "LINK-02",
+        "name": "Invalid URL or unsafe protocol",
+        "severity": "High",
+        "condition": "Malformed URL or unsupported scheme (javascript:, data:, etc.)"
+      },
+      {
+        "id": "LINK-03",
+        "name": "Broken HTTP destination",
+        "severity": "High",
+        "condition": "Final HTTP status 404 or 410"
+      },
+      {
+        "id": "LINK-04",
+        "name": "Server error",
+        "severity": "High",
+        "condition": "Final HTTP status 500–599"
+      },
+      {
+        "id": "LINK-05",
+        "name": "Redirect failure",
+        "severity": "High",
+        "condition": "Redirect loop, missing Location, invalid target, or max redirects exceeded"
+      },
+      {
+        "id": "LINK-06",
+        "name": "Approved URL mismatch",
+        "severity": "High",
+        "condition": "Recognized component destination does not match approved URL mapping"
+      },
+      {
+        "id": "LINK-07",
+        "name": "Missing accessible link name",
+        "severity": "Medium",
+        "condition": "Link has no visible text, image alt, or aria-label"
+      },
+      {
+        "id": "LINK-08",
+        "name": "Timeout, 403, 429, or bot protection",
+        "severity": "Needs review",
+        "condition": "Inconclusive automated response"
+      },
+      {
+        "id": "LINK-09",
+        "name": "Successful redirect",
+        "severity": "Info",
+        "condition": "HTTP 301,302,303,307,308 ending in successful 2xx response; capture final URL and redirect chain"
+      },
+      {
+        "id": "LINK-10",
+        "name": "Email, telephone, and fragment links",
+        "severity": "Needs review",
+        "condition": "Validate mailto syntax, tel syntax, and fragment target locally; do not send HTTP requests"
+      }
+    ],
+    "httpMethod": "GET with redirect following; HEAD may be attempted as optimization but must not be the sole check",
+    "maxRedirects": 10,
+    "timeoutMs": 10000,
+    "security": "Block private/local/internal network targets and unsafe schemes to avoid SSRF; do not execute JavaScript URLs",
+    "resultsFields": [
+      "sourceElement",
+      "linkText",
+      "originalHref",
+      "resolvedUrl",
+      "redirectChain",
+      "finalUrl",
+      "httpStatus",
+      "outcome",
+      "severity",
+      "issueId"
+    ],
+    "deduplicateRequestsByResolvedUrl": true
+  },
+  "linkInventory": {
+    "sourceFile": "reference newsletter HTML",
+    "extractedAnchorCount": 13,
+    "approvedReusableLinks": [
+      {
+        "id": "every-org",
+        "label": "Every.org",
+        "url": "https://www.every.org/keelworks-foundation?donateTo=keelworks-foundation#/donate/card",
+        "scope": "approved-component"
+      },
+      {
+        "id": "donate-cta",
+        "label": "Donate",
+        "url": "https://www.every.org/keelworks-foundation?donateTo=keelworks-foundation#/donate/card",
+        "scope": "approved-component"
+      },
+      {
+        "id": "visit-us",
+        "label": "Visit us",
+        "url": "https://keelworks.org",
+        "scope": "approved-component"
+      },
+      {
+        "id": "footer-donate",
+        "label": "Donate",
+        "url": "https://www.every.org/keelworks-foundation",
+        "scope": "approved-component"
+      },
+      {
+        "id": "get-involved",
+        "label": "Get involved",
+        "url": "https://keelworks.org/getinvolved",
+        "scope": "approved-component"
+      },
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "url": "https://www.facebook.com/TheKeelWorks",
+        "scope": "approved-component"
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@thekeelworksfoundation8668",
+        "scope": "approved-component"
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/keelworks-foundation/",
+        "scope": "approved-component"
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "url": "https://www.instagram.com/thekeelworks/",
+        "scope": "approved-component"
+      },
+      {
+        "id": "unsubscribe",
+        "label": "Unsubscribe",
+        "url": "https://newsletters.keelworks.org/unsubscribe",
+        "scope": "approved-component"
+      },
+      {
+        "id": "privacy-policy",
+        "label": "Privacy policy",
+        "url": "https://keelworks.org/privacy_policy",
+        "scope": "approved-component"
+      }
+    ],
+    "validationPolicy": "Reusable component destinations are checked against approved URLs. Dynamic links are validated against their current newsletter edition; content-specific links are scanned individually.",
+    "dynamicLinks": [
+      {
+        "id": "view-in-browser",
+        "label": "View email in browser",
+        "urlRequirement": "Dynamic — current newsletter’s published HTTPS URL",
+        "alignment": "left",
+        "target": "_blank",
+        "rel": "noopener noreferrer",
+        "validation": "Verify valid nonempty HTTPS href, reachable published destination, correct newsletter edition and opens in a new browser tab."
+      }
+    ]
+  }
+}
