@@ -1,0 +1,17 @@
+
+{
+  "name": "keelworks-newsletter-qa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node newsletter-test.js",
+    "test": "node --check newsletter-test.js && node --input-type=module -e \"import { readFileSync } from 'node:fs'; const ds = JSON.parse(readFileSync('design-system/design-system.json', 'utf8')); if (!ds.typography?.['Body/Regular'] || !ds.typography?.['Heading/H1'] || !ds.typography?.['Heading/H2']) process.exit(1); console.log('Design System JSON loaded successfully');\""
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "playwright": "^1.56.1"
+  }
+}
