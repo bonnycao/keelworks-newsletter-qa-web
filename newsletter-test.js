@@ -271,14 +271,31 @@ app.post('/api/audit',async(req,res)=>{
   }else{source={url:await validateUrl(req.body?.url)};}
   const result=await audit(source);const id=randomUUID();jobs.set(id,result);if(jobs.size>25)jobs.delete(jobs.keys().next().value);res.json({id,...result});}
  catch(e){res.status(400).json({error:clean(e.message)});}
+ finally { activeScans = Math.max(0, activeScans - 1); }
 });
-app.get('/api/export/:id',async(req,res)=>{
- const result=jobs.get(req.params.id);if(!result)return res.status(404).send('Run a QA scan first.');
+async function sendExcel(res,result,filename='KeelWorks_Newsletter_QA.xlsx'){
+
  const wb=new ExcelJS.Workbook();wb.creator='KeelWorks Newsletter QA';const ws=wb.addWorksheet('QA Defects',{views:[{state:'frozen',ySplit:1}]});
  ws.columns=[{header:'Defect ID',key:'id',width:13},{header:'Category',key:'category',width:21},{header:'Defect',key:'defect',width:36},{header:'Defect Description',key:'description',width:75},{header:'Change Solution',key:'solution',width:76},{header:'Severity',key:'severity',width:13},{header:'Viewport',key:'viewport',width:13},{header:'Status',key:'status',width:17}];
  ws.addRows(result.issues);ws.autoFilter={from:'A1',to:'H1'};ws.getRow(1).font={bold:true,color:{argb:'FFFFFFFF'}};ws.getRow(1).fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF263C63'}};ws.getRow(1).height=28;
  ws.eachRow((row,i)=>{if(i>1){row.alignment={vertical:'top',wrapText:true};row.height=44;if(i%2===0)row.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFF1F5F9'}};}});
  const info=wb.addWorksheet('Scan Summary');info.addRows([['KeelWorks Newsletter QA Scan'],['Source',result.url],['Checked at',result.checkedAt],['Total findings',result.count],['Note','Automated results require human review.'],...result.notes.map(n=>['Limitation',n])]);info.getColumn(1).width=22;info.getColumn(2).width=110;info.getColumn(2).alignment={wrapText:true};
- res.setHeader('Content-Type','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');res.setHeader('Content-Disposition','attachment; filename="KeelWorks_Newsletter_QA.xlsx"');await wb.xlsx.write(res);res.end();
+ res.setHeader('Content-Type','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');res.setHeader('Content-Disposition',`attachment; filename="${filename}"`);await wb.xlsx.write(res);res.end();
+}
+app.get('/api/export/:id',async(req,res)=>{
+ const result=jobs.get(req.params.id);if(!result)return res.status(404).send('Report no longer available.');
+ try{await sendExcel(res,result)}catch(e){if(!res.headersSent)res.status(500).json({error:'Export failed.'});}
+});
+// Export a browser-saved report without relying on the server's ephemeral jobs Map.
+app.post('/api/export-report',express.json({limit:'3mb'}),async(req,res)=>{
+ const report=req.body;
+ if(!report||!Array.isArray(report.issues)||report.issues.length>1500||typeof report.source!=='string'||report.source.length>2000||!Array.isArray(report.notes)||report.notes.length>100)return res.status(400).json({error:'Invalid report data.'});
+ const fields=['id','category','defect','description','solution','severity','viewport','status'];
+ const issues=report.issues.map(issue=>Object.fromEntries(fields.map(field=>[field,clean(issue?.[field])])));
+ const result={url:clean(report.source),checkedAt:clean(report.checkedAt),count:issues.length,issues,notes:report.notes.map(clean)};
+ const month=String(report.month||'Newsletter').replace(/[^A-Za-z]/g,'').slice(0,20);
+ const year=String(report.year||'').replace(/[^0-9]/g,'').slice(0,4);
+ const test=String(report.test||1).replace(/[^0-9]/g,'').slice(0,5);
+ try{await sendExcel(res,result,`${month}_${year}_Newsletter_QA_Test_${test}.xlsx`)}catch(e){if(!res.headersSent)res.status(500).json({error:'Export failed.'});}
 });
 app.listen(port,'0.0.0.0',()=>console.log(`KeelWorks QA listening on port ${port}`));
