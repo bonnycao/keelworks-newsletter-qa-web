@@ -1,7 +1,6 @@
-
 {
   "name": "keelworks-newsletter-qa",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,6 +11,6 @@
     "@axe-core/playwright": "^4.10.2",
     "exceljs": "^4.4.0",
     "express": "^4.21.2",
-    "playwright": "^1.56.1"
+    "playwright": "1.56.1"
   }
 }
